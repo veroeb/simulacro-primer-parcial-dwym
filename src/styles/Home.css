@@ -11,6 +11,8 @@
 .add-game-button {
   background-color: #168f8d;
   color: white;
+  font-size: 14px;
+  font-weight: bold;
   padding: 10px;
   border: none;
   cursor: pointer;
