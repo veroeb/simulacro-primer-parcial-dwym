@@ -1,0 +1,31 @@
+.home {
+  padding: 20px;
+}
+
+.add-game-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.games-list {
+  display: flex;
+  gap: 20px;
+}
+
+.game-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.details-button,
+.delete-button {
+  margin-top: 10px;
+  padding: 5px;
+  cursor: pointer;
+}

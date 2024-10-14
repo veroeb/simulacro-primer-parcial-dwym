@@ -1,0 +1,12 @@
+.game-details {
+  padding: 20px;
+}
+
+.back-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
