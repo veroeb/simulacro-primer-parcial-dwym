@@ -22,7 +22,7 @@ const Home = () => {
     axios
       .delete(`http://localhost:3000/api/games/${id}`)
       .then((response) => {
-        setGames(response.data);
+        setGames((prevGames) => prevGames.filter((game) => game.id !== id));
       })
       .catch((error) => {
         console.error("Error deleting game", error);
