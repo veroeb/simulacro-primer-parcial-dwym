@@ -41,6 +41,7 @@
 .button-group {
   margin-top: 10px;
 }
+
 .details-button, .delete-button {
   padding: 5px;
   cursor: pointer;
@@ -48,3 +49,14 @@
   margin-top: 5px;
 }
 
+@media (max-width: 768px) {
+  .games-list {
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .game-card {
+    min-width: 100%;
+  }
+}
