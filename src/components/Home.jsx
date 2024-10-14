@@ -42,6 +42,7 @@ const Home = () => {
         {games.map((game) => (
           <div key={game.id} className="game-card">
             <h3>{game.title}</h3>
+            <div className="spacer"></div>{" "}
             <div className="button-group">
               <button
                 className="details-button"
@@ -49,8 +50,6 @@ const Home = () => {
               >
                 Detalles
               </button>
-            </div>
-            <div className="button-group">
               <button
                 className="delete-button"
                 onClick={() => deleteGame(game.id)}

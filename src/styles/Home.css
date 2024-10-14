@@ -4,7 +4,6 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -15,7 +14,6 @@
   padding: 10px;
   border: none;
   cursor: pointer;
-  margin-top: 20px;
   margin-left: auto;
   margin-right: 0;
   display: block;
@@ -35,7 +33,12 @@
   border-radius: 8px;
   text-align: center;
   min-width: 250px;
-  scroll-snap-align: start;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+.spacer {
+  flex-grow: 0.6;
 }
 
 .button-group {
