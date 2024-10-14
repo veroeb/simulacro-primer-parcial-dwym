@@ -18,8 +18,13 @@ const AddGame = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formattedGame = {
+      ...game,
+      title: game.title.charAt(0).toUpperCase() + game.title.slice(1),
+    };
+
     axios
-      .post("http://localhost:3000/api/games", game)
+      .post("http://localhost:3000/api/games", formattedGame)
       .then((response) => {
         navigate("/");
       })
@@ -30,6 +35,9 @@ const AddGame = () => {
 
   return (
     <div className="add-game">
+      <button className="back-button" onClick={() => navigate("/")}>
+        Atrás
+      </button>
       <h2>Agregar Nuevo Deporte</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -49,7 +57,7 @@ const AddGame = () => {
           required
         />
         <input
-          type="text"
+          type="number"
           name="players"
           placeholder="Cantidad de Jugadores"
           value={game.players}

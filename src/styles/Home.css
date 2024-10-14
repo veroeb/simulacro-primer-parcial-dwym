@@ -2,18 +2,31 @@
   padding: 20px;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .add-game-button {
-  background-color: #007bff;
+  background-color: #168f8d;
   color: white;
   padding: 10px;
   border: none;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: 0;
+  display: block;
 }
 
 .games-list {
   display: flex;
   gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
 }
 
 .game-card {
@@ -21,11 +34,17 @@
   padding: 10px;
   border-radius: 8px;
   text-align: center;
+  min-width: 250px;
+  scroll-snap-align: start;
 }
 
-.details-button,
-.delete-button {
+.button-group {
   margin-top: 10px;
+}
+.details-button, .delete-button {
   padding: 5px;
   cursor: pointer;
+  width: 100%;
+  margin-top: 5px;
 }
+
