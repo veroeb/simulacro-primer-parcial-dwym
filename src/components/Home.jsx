@@ -8,10 +8,12 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/games")
-      .then((response) => {
-        setGames(response.data);
+    fetch("http://localhost:3000/api/games", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setGames(data);
       })
       .catch((error) => {
         console.error("Error fetching games", error);
@@ -19,10 +21,15 @@ const Home = () => {
   }, []);
 
   const deleteGame = (id) => {
-    axios
-      .delete(`http://localhost:3000/api/games/${id}`)
+    fetch(`http://localhost:3000/api/games/${id}`, {
+      method: "DELETE",
+    })
       .then((response) => {
-        setGames((prevGames) => prevGames.filter((game) => game.id !== id));
+        if (response.ok) {
+          setGames((prevGames) => prevGames.filter((game) => game.id !== id));
+        } else {
+          throw new Error("Failed to delete game");
+        }
       })
       .catch((error) => {
         console.error("Error deleting game", error);

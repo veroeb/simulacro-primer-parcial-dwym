@@ -9,10 +9,12 @@ const GameDetails = () => {
   const { gameId } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/api/games/${gameId}`)
-      .then((response) => {
-        setGame(response.data[0]);
+    fetch(`http://localhost:3000/api/games/${gameId}`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setGame(data[0]);
       })
       .catch((error) => {
         console.error("Error fetching game details", error);
