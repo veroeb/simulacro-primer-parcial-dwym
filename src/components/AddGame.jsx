@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import "../styles/AddGame.css";
 
 const AddGame = () => {
@@ -23,10 +22,19 @@ const AddGame = () => {
       title: game.title.charAt(0).toUpperCase() + game.title.slice(1),
     };
 
-    axios
-      .post("http://localhost:3000/api/games", formattedGame)
+    fetch("http://localhost:3000/api/games", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formattedGame),
+    })
       .then((response) => {
-        navigate("/");
+        if (response.ok) {
+          navigate("/");
+        } else {
+          throw new Error("Failed to add game");
+        }
       })
       .catch((error) => {
         console.error("Error adding game", error);
